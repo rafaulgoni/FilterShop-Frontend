@@ -4,8 +4,9 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
     const [theme, setTheme] = useState('light')
     const links = <>
-    <li><NavLink to='/' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}>Home</NavLink></li>
-</>
+        <li><NavLink to='/' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}>Home</NavLink></li>
+        <li><NavLink to='/allCard' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}> All Card</NavLink></li>
+    </>
 
     const handleToggle = e => {
         if (e.target.checked) {
@@ -43,14 +44,14 @@ const NavBar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                           {links}
+                            {links}
                         </ul>
                     </div>
                     <img className="w-24" src={"https://i.ibb.co/KNyd47D/aaa-removebg-preview.png"} alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                       {links}
+                        {links}
                     </ul>
                 </div>
                 <div className="navbar-end">
