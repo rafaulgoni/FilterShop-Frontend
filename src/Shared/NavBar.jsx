@@ -30,10 +30,9 @@ const NavBar = () => {
             .catch()
     }
 
-
     return (
         <div className=" container mx-auto">
-            <div className="navbar bg-base-100">
+            <div className="navbar fixed z-10 bg-opacity-30 bg-base-100 text-black container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -63,7 +62,21 @@ const NavBar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end gap-2">
+                    {
+                        user ? <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} alt="" />
+                                </div>
+                            </div>
+                            <ul tabIndex={0} className="mt-3 z-[10] p-4 shadow menu menu-sm text-black dropdown-content bg-base-100 rounded-box w-52 space-y-4">
+                                <li className="font-bold text-center">Name: {user.displayName}</li>
+                                <button onClick={handleLogOut} className="font-bold border-b-4 border-[#FF3811] p-2 rounded-xl">Log Out</button>
+                            </ul>
+                        </div> :
+                            <Link to="/login" className="btn btn-sm bg-[#c81717] font-bold">LogIn</Link>
+                    }
                     <label className="swap swap-rotate">
                         <input onClick={handleToggle} type="checkbox" className="theme-controller" value="synthwave" />
                         <svg
@@ -81,7 +94,6 @@ const NavBar = () => {
                                 d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
                         </svg>
                     </label>
-                {user?<button onClick={handleLogOut}  className="btn btn-sm bg-[#ff1111] font-bold">Log Out</button> : <Link to="/login" className="btn btn-sm bg-[#ff1111] font-bold">LogIn</Link>}
                 </div>
             </div>
         </div>

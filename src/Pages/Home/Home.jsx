@@ -1,9 +1,12 @@
+import Banner from "../../Components/HomeData/Banner";
+import Contact from "../../Components/HomeData/Contract";
 
 
 const Home = () => {
     return (
         <div>
-            home
+            <Banner/>
+            <Contact/>
         </div>
     );
 };
