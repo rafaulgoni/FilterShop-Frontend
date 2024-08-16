@@ -1,13 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { FaHome } from "react-icons/fa";
+import { FaCartShopping } from "react-icons/fa6";
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [theme, setTheme] = useState('light')
     const links = <>
-        <li><NavLink to='/' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}>Home</NavLink></li>
-        <li><NavLink to='/allCard' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}> All Card</NavLink></li>
+        <li><NavLink to='/' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}><FaHome/> Home</NavLink></li>
+        <li><NavLink to='/allCard' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}><FaCartShopping/>All Product</NavLink></li>
     </>
 
     const handleToggle = e => {
@@ -57,12 +59,12 @@ const NavBar = () => {
                     </div>
                     <img className="w-24" src={"https://i.ibb.co/KNyd47D/aaa-removebg-preview.png"} alt="" />
                 </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        {links}
-                    </ul>
-                </div>
                 <div className="navbar-end gap-2">
+                    <div className="navbar-center hidden lg:flex">
+                        <ul className="menu menu-horizontal px-1">
+                            {links}
+                        </ul>
+                    </div>
                     {
                         user ? <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -75,7 +77,7 @@ const NavBar = () => {
                                 <button onClick={handleLogOut} className="font-bold border-b-4 border-[#FF3811] p-2 rounded-xl">Log Out</button>
                             </ul>
                         </div> :
-                            <Link to="/login" className="btn btn-sm bg-[#c81717] font-bold">LogIn</Link>
+                            <Link to="/login" className="btn btn-sm bg-[#ff1111] font-bold border-none">LogIn</Link>
                     }
                     <label className="swap swap-rotate">
                         <input onClick={handleToggle} type="checkbox" className="theme-controller" value="synthwave" />

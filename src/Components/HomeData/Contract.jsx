@@ -62,7 +62,7 @@ const Contact = () => {
                                 <span className="mb-1">Message</span>
                                 <textarea rows="3" placeholder="Type your message" name="message" className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 p-2"></textarea>
                             </label>
-                            <button type="submit" className="font-bold btn bg-[#c81717]">Submit</button>
+                            <button type="submit" className="font-bold btn bg-[#ff1111]">Submit</button>
                         </form>
                     </div>
                 </section>
