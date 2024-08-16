@@ -9,7 +9,22 @@ const Product = () => {
     const pages = [...Array(numberOfPages).keys()];
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState('');
+    const [brand, setBrand] = useState('');
 
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/productBrand?brand=${brand}`)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+    }, [brand])
+
+    const handleBrand = e =>{
+        e.preventDefault();
+        const data = e.target.value
+        setBrand(data)
+    }
 
     useEffect(() => {
         fetch(`http://localhost:5000/productCategory?category=${category}`)
@@ -79,19 +94,39 @@ const Product = () => {
                 <hr className='border-b-4 border-dashed w-2/6 mx-auto' />
             </div>
             <div className="">
-                <div className="grid lg:grid-cols-2 mx-auto">
+                <div className="md:flex items-center justify-between">
                     <div>
                         <form onSubmit={handleSearch} className="mb-5">
-                            <label className="input input-bordered flex items-center gap-2 max-w-sm">
+                            <label className="input input-bordered flex items-center gap-2 max-w-sm mx-auto">
                                 <input type="text" name="search" className="grow " placeholder="Please search your Product name" />
                                 <button className="btn btn-sm bg-[#FF3811]">Search</button>
                             </label>
                         </form>
                     </div>
                     <div>
+                        <select onClick={handleBrand} name=''
+                                id=''
+                                className='border p-3 rounded-md w-full lg:w-80 font-bold mx-auto gap-2'>
+                            <option value="">Brand</option>
+                            <option value="apple">Apple</option>
+                            <option value="hp">HP</option>
+                            <option value="asus">Asus</option>
+                            <option value="lenovo">Lenovo</option>
+                            <option value="oppo">Oppo</option>
+                            <option value="vivo">vivo</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="acer">Acer</option>
+                            <option value="huawei">Huawei</option>
+                            <option value="google">Google</option>
+                            <option value="microsoft">Microsoft</option>
+                            <option value="sony">Sony</option>
+                            <option value="dell">Dell</option>
+                        </select>
+                    </div>
+                    <div>
                         <select onClick={handleCategory} name=''
                                 id=''
-                                className='border p-3 rounded-md w-96 font-bold'>
+                                className='border p-3 rounded-md w-full lg:w-80 font-bold gap-2'>
                             <option value="">category</option>
                             <option value="phone">phone</option>
                             <option value="laptop">laptop</option>
@@ -100,12 +135,16 @@ const Product = () => {
                         </select>
                     </div>
                 </div>
+                <div className=" md:flex items-center justify-around mb-5">
+                    <button className="btn bg-[#ff1111] w-full md:w-80 font-bold">Low price</button>
+                    <button className="btn bg-[#ff1111] w-full md:w-80 font-bold">High price</button>
+                </div>
                 <div className=" grid md:grid-cols-3 gap-8">
                     {
                         products.map(product => <div key={product._id} className="card bg-base-100 w-full rounded-none shadow-xl">
                             <figure>
-                                <img
-                                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                                <img className="h-96"
+                                    src={product.image}
                                     alt="Shoes" />
                             </figure>
                             <div className="card-body">
