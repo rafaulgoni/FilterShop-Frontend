@@ -35,7 +35,7 @@ https://filter-shop.web.app
 
 ## Problem face
 
-"I faced two problems while projecting fast delivery and implementing a payment gateway. However, after getting a very nice idea with the help of Google Chat GPT, I have been able to solve my problems."
+"I faced two problems while projecting filter shop and implementing a payment gateway. However, after getting a very nice idea with the help of Google Chat GPT, I have been able to solve my problems."
 
 
 ## Resources:
