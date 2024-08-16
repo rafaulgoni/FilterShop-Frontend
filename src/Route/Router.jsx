@@ -17,6 +17,7 @@ const router = createBrowserRouter([
             {
                 path: "/allCard",
                 element: <AllCard/>,
+                loader: ()=> fetch("http://localhost:5000/productsCount")
             },
             {
                 path: "login",
