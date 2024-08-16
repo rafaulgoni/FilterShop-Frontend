@@ -63,7 +63,7 @@ https://filter-shop.web.app
 Install my-project with clone
 
 ```bash
-  git clone 
+  git clone https://github.com/rafaulgoni/FilterShop-Frontend.git
   npm Install
   npm run dev
 ```
