@@ -43,7 +43,7 @@ const Register = () => {
                     .then(() => {
                         e.target.reset()
                         toast.success('Successfully create user!')
-                        navigate('/')
+                        navigate('/home')
                     })
             })
             .catch(error => {
@@ -55,7 +55,7 @@ const Register = () => {
             <Helmet>
                 <title>FilterShop | Register</title>
             </Helmet>
-            <div className="hero bg-cover bg-base-200 container mx-auto rounded-t-xl">
+            <div className="hero bg-cover bg-base-200 container mx-auto rounded-t-xl pt-16">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center">
                         <img src={"https://i.ibb.co/nkdJK8M/Security.webp"} alt="" />
@@ -124,7 +124,7 @@ const Register = () => {
                             </div>
                         </form>
                         <div className="text-center p-3">
-                            <p className="font-bold">Already have an account? <Link to='/login'><u className="font-bold text-[#d10000]">Login</u></Link></p>
+                            <p className="font-bold">Already have an account? <Link to='/'><u className="font-bold text-[#d10000]">Login</u></Link></p>
                         </div>
                     </div>
                 </div>

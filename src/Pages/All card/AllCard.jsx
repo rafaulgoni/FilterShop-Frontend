@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 
 const AllCard = () => {
@@ -14,6 +15,9 @@ const AllCard = () => {
     }
     return (
         <div className=' container mx-auto'>
+            <Helmet>
+                <title> FilterShop | Contract</title>
+            </Helmet>
             <div className="pt-20 mb-16">
                 <section className="py-6 bg-base-200">
                     <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">

@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import AllCard from "../Pages/All card/AllCard";
 import Register from "../Auth/Register";
 import LogIn from "../Auth/LogIn";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -12,16 +13,16 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home/>,
+                element: <LogIn/>,
             },
             {
                 path: "/allCard",
-                element: <AllCard/>,
-                loader: ()=> fetch("http://localhost:5000/productsCount")
+                element: <PrivateRoute><AllCard/></PrivateRoute>,
+                loader: ()=> fetch("https://filter-shop-backend.vercel.app/productsCount")
             },
             {
-                path: "login",
-                element: <LogIn/>,
+                path: "/home",
+                element: <PrivateRoute><Home/></PrivateRoute>,
             },
             {
                 path: "/register",

@@ -23,7 +23,7 @@ const LogIn = () => {
             .then(() => {
                 toast.success('LogIn Successful!')
                 e.target.reset()
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/home')
             })
             .catch(error => {
                 setError('invalid-credential')
@@ -33,7 +33,7 @@ const LogIn = () => {
     const handleGoogle = () => {
         googleLogIn()
             .then(() => {
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/home')
             })
             .catch(error => {
                 console.error(error)
@@ -45,7 +45,7 @@ const LogIn = () => {
             <Helmet>
                 <title> FilterShop | LogIn</title>
             </Helmet>
-            <div className="hero container mx-auto">
+            <div className="hero container mx-auto pt-16">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center">
                         <img src={"https://i.ibb.co/nkdJK8M/Security.webp"} alt="" />

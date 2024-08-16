@@ -8,8 +8,12 @@ const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [theme, setTheme] = useState('light')
     const links = <>
-        <li><NavLink to='/' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}><FaHome/> Home</NavLink></li>
-        <li><NavLink to='/allCard' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}><MdAddIcCall/>Contact</NavLink></li>
+        {
+        user && <>
+            <li><NavLink to='/home' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}><FaHome /> Home</NavLink></li>
+            <li><NavLink to='/allCard' className={({ isActive }) => isActive ? ' font-bold border-b-4 p-2 border-[#ff1111]' : 'font-family'}><MdAddIcCall />Contact</NavLink></li>
+        </>
+        }
     </>
 
     const handleToggle = e => {
